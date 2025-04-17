@@ -1,209 +1,152 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Donate to Connect</title>
-  <link
-    href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;500;700&display=swap"
-    rel="stylesheet"
-  />
-  <link
-    href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css"
-    rel="stylesheet"
-  />
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
   <style>
-    :root {
-      --primary: #8b0000;
-      --accent: #ffd700;
-      --dark: #222;
-      --light: #f8f9fa;
-      --font: 'Poppins', sans-serif;
+    body { padding-top: 70px; }
+    footer { background: #333; color: #fff; padding: 20px 0; text-align: center; }
+    .section-box { padding: 50px 0; text-align: center; }
+    .action-section {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        border-top: 2px solid maroon;
+        border-bottom: 2px solid maroon;
+        padding: 40px 0;
+        background-color: #fdfdfd;
+        flex-wrap: wrap;
+        gap: 30px;
     }
-    * {
-      font-family: var(--font);
-      scroll-behavior: smooth;
+    .vertical-divider {
+      display: none;
     }
-    body {
-      padding-top: 70px;
-      background: var(--light);
+    @media (min-width: 768px) {
+      .vertical-divider {
+        display: block;
+        border-left: 2px solid gold;
+        height: 80px;
+        margin: 0 15px;
+      }
     }
-    .hero {
-      background: url('hero.jpg') center/cover no-repeat;
-      height: 60vh;
+    .ads {
+        background: #e9ecef;
+        text-align: center;
+        font-weight: bold;
+        padding: 0;
+        margin: 0;
+    }
+    .articles-wrapper {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 30px;
+      justify-content: center;
+    }
+    .card.flex-item {
+      flex: 1 1 100%;
+      max-width: 100%;
+      background-color: #fff;
+      box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+    }
+    @media (min-width: 768px) {
+      .card.flex-item {
+        flex: 1 1 calc(45% - 30px);
+        max-width: calc(45% - 30px);
+      }
+    }
+    .card-img-top {
+      height: 200px;
+      object-fit: cover;
+    }
+    .modal-dialog {
       display: flex;
       align-items: center;
       justify-content: center;
-      color: #fff;
-      text-shadow: 0 2px 8px rgba(0, 0, 0, 0.5);
-    }
-    .hero h1 {
-      font-weight: 700;
-      font-size: 3rem;
-    }
-    .action-cards .card {
-      border: none;
-      transition: transform 0.2s, box-shadow 0.2s;
-    }
-    .action-cards .card:hover {
-      transform: translateY(-5px);
-      box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
-    }
-    footer {
-      background: var(--dark);
-      color: #bbb;
-      padding: 2rem 0;
-    }
-    footer a {
-      color: var(--accent);
-      margin: 0 0.5rem;
+      min-height: 100vh;
     }
   </style>
 </head>
 <body>
 
+<!-- Navbar -->
 <nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top">
-  <div class="container">
-    <a class="navbar-brand fw-bold" href="#">Donate to Connect</a>
-    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#nav">
+  <div class="container-fluid">
+    <a class="navbar-brand" href="#">Donate to Connect</a>
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
       <span class="navbar-toggler-icon"></span>
     </button>
-    <div class="collapse navbar-collapse" id="nav">
+    <div class="collapse navbar-collapse" id="navbarNav">
       <ul class="navbar-nav ms-auto">
-        <li class="nav-item"><a class="nav-link" href="#about">About</a></li>
-        <li class="nav-item"><a class="nav-link" data-bs-toggle="modal" data-bs-target="#registerModal">Register</a></li>
-        <li class="nav-item"><a class="nav-link" data-bs-toggle="modal" data-bs-target="#loginModal">Login</a></li>
+        <li class="nav-item"><a class="nav-link" href="#home">Home</a></li>
+        <li class="nav-item"><a class="nav-link" href="#" data-bs-toggle="modal" data-bs-target="#registerModal">Register</a></li>
+        <li class="nav-item"><a class="nav-link" href="#" data-bs-toggle="modal" data-bs-target="#loginModal">Login</a></li>
       </ul>
     </div>
   </div>
 </nav>
 
-<section class="hero" id="home">
-  <h1>Make a Change Today!</h1>
-</section>
+<!-- Header Banner -->
+<div class="section-box bg-light">
+  <h2 class="text-success">Make a Change Today!</h2>
+</div>
 
-<section class="container py-5" id="about">
-  <div class="row row-cols-1 row-cols-md-2 g-4 action-cards text-center">
-    <div class="col">
-      <div class="card p-4">
-        <img src="donate-icon.svg" alt="Donate" class="mx-auto mb-3" width="60" />
-        <h5 class="card-title text-primary">Donate a Device</h5>
-        <button class="btn btn-outline-primary mt-2" data-bs-toggle="modal" data-bs-target="#donateModal">Get Started</button>
-      </div>
-    </div>
-    <div class="col">
-      <div class="card p-4">
-        <img src="claim-icon.svg" alt="Claim" class="mx-auto mb-3" width="60" />
-        <h5 class="card-title text-success">Claim a Device</h5>
-        <button class="btn btn-outline-success mt-2" data-bs-toggle="modal" data-bs-target="#claimModal">Get Started</button>
-      </div>
-    </div>
+<!-- Donate / Claim Section -->
+<div class="container">
+  <div class="action-section">
+    <div><h4 class="text-success" data-bs-toggle="modal" data-bs-target="#donateModal" style="cursor:pointer;">Donate a phone</h4></div>
+    <div class="vertical-divider"></div>
+    <div><h4 class="text-success" data-bs-toggle="modal" data-bs-target="#claimModal" style="cursor:pointer;">Claim a phone</h4></div>
   </div>
-</section>
-
-<section class="container py-5">
-  <h2 class="text-center mb-4">Aboriginal News</h2>
-  <div class="row row-cols-1 row-cols-md-2 row-cols-lg-4 g-4">
-    <div class="col">
-      <div class="card h-100 shadow-sm">
-        <img src="https://live-production.wcms.abc-cdn.net.au/69c17a36f657d3874981798aca2fa947?impolicy=wcms_crop_resize&cropH=2241&cropW=3984&xPos=4&yPos=0&width=862&height=485"
-             class="card-img-top" style="height:180px;object-fit:cover" alt="">
-        <div class="card-body d-flex flex-column">
-          <h6 class="card-title">Tasmania's foreign-owned salmon companies</h6>
-          <a href="https://www.abc.net.au/news/2025-04-05/salmon-companies-how-they-operate-tasmania-and-overseas/105092152"
-             class="mt-auto btn btn-sm btn-outline-primary" target="_blank">Read More</a>
-        </div>
-      </div>
-    </div>
-    <div class="col">
-      <div class="card h-100 shadow-sm">
-        <img src="https://nit.com.au/img/large/center/storage/3KS4chNnIy32OfhJtqODpue8f7xgj7FuaTl3TXc0.jpg"
-             class="card-img-top" style="height:180px;object-fit:cover" alt="">
-        <div class="card-body d-flex flex-column">
-          <h6 class="card-title">RLPA want talks to avoid missing more NRLW superstars</h6>
-          <a href="https://nit.com.au/06-04-2025/17240/rlpa-want-talks-to-avoid-missing-more-nrlw-superstars"
-             class="mt-auto btn btn-sm btn-outline-primary" target="_blank">Read More</a>
-        </div>
-      </div>
-    </div>
-    <div class="col">
-      <div class="card h-100 shadow-sm">
-        <img src="https://live-production.wcms.abc-cdn.net.au/b4afbfc718dec381f6b7e1c63149dab4?impolicy=wcms_crop_resize&cropH=2813&cropW=5000&xPos=0&yPos=376&width=862&height=485"
-             class="card-img-top" style="height:180px;object-fit:cover" alt="">
-        <div class="card-body d-flex flex-column">
-          <h6 class="card-title">Yuchi and Pertame families share language revival strategies</h6>
-          <a href="https://www.abc.net.au/news/2025-04-05/yuchi-and-pertame-families-revive-native-languages/105107906"
-             class="mt-auto btn btn-sm btn-outline-primary" target="_blank">Read More</a>
-        </div>
-      </div>
-    </div>
-    <div class="col">
-      <div class="card h-100 shadow-sm">
-        <img src="https://live-production.wcms.abc-cdn.net.au/37fbb203f6f45f94c54a93288afa231f?impolicy=wcms_crop_resize&cropH=3333&cropW=5000&xPos=0&yPos=0&width=862&height=575"
-             class="card-img-top" style="height:180px;object-fit:cover" alt="">
-        <div class="card-body d-flex flex-column">
-          <h6 class="card-title">Specialist Indigenous firefighters empowered to save sacred sites</h6>
-          <a href="https://www.abc.net.au/news/2025-04-05/indigenous-cultural-heritage-firefighting-victoria/105064856"
-             class="mt-auto btn btn-sm btn-outline-primary" target="_blank">Read More</a>
-        </div>
-      </div>
-    </div>
-  </div>
-</section>
-
-<section class="container text-center py-5">
-  <h2 class="mb-4">Our Sponsors</h2>
-  <div class="row g-3 justify-content-center align-items-center">
-    <div class="col-auto"><img src="telstra.png" alt="Telstra" height="50"></div>
-    <div class="col-auto"><img src="vodaPhoneAds.png" alt="vodaPhoneAds.png" height="50"></div>
-  </div>
-</section>
+</div>
 
 <!-- Donate Modal -->
-<div class="modal fade" id="donateModal" tabindex="-1" aria-hidden="true">
+<div class="modal fade" id="donateModal" tabindex="-1" aria-labelledby="donateModalLabel" aria-hidden="true">
   <div class="modal-dialog modal-dialog-centered">
     <div class="modal-content">
       <div class="modal-header">
-        <h5 class="modal-title">Donate a Device</h5>
-        <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+        <h5 class="modal-title">Donate a Phone</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
       </div>
       <div class="modal-body">
         <form onsubmit="return attachUserType()">
           <div class="mb-3">
             <label class="form-label">Name</label>
-            <input type="text" class="form-control" required />
+            <input type="text" class="form-control" required>
           </div>
           <div class="mb-3">
             <label class="form-label">Email</label>
-            <input type="email" class="form-control" required />
+            <input type="email" class="form-control" required>
           </div>
           <div class="mb-3">
             <label class="form-label">Phone</label>
-            <input type="tel" class="form-control" required />
+            <input type="tel" class="form-control" required>
           </div>
           <div class="mb-3">
-            <label class="form-label">Device Brand</label>
-            <select class="form-select" required>
-              <option value="">Select</option>
-              <option>Samsung</option>
-              <option>Apple</option>
-              <option>Xiaomi</option>
-              <option>Huawei</option>
-              <option>Nokia</option>
-              <option>Other</option>
-            </select>
+  <label class="form-label">Device Brand</label>
+  <select class="form-select" required>
+    <option value="">Select</option>
+    <option>Samsung</option>
+    <option>Apple</option>
+    <option>Xiaomi</option>
+    <option>Huawei</option>
+    <option>Nokia</option>
+    <option>Other</option>
+  </select>
+</div>
+<div class="mb-3">
+  <label class="form-label">Device Type</label>
+  <select class="form-select" required>
+    <option value="">Select</option>
+    <option>Phone</option>
+    <option>Laptop</option>
+    <option>Tablet</option>
+  </select>
+</div>
           </div>
-          <div class="mb-3">
-            <label class="form-label">Device Type</label>
-            <select class="form-select" required>
-              <option value="">Select</option>
-              <option>Phone</option>
-              <option>Laptop</option>
-              <option>Tablet</option>
-            </select>
-          </div>
-          <input type="hidden" id="userTypeField" name="userType" />
-          <button type="submit" class="btn btn-primary w-100">Submit</button>
+          <button type="submit" class="btn btn-primary">Submit</button>
+        <input type="hidden" name="userType" id="userTypeField">
         </form>
       </div>
     </div>
@@ -211,75 +154,141 @@
 </div>
 
 <!-- Claim Modal -->
-<div class="modal fade" id="claimModal" tabindex="-1" aria-hidden="true">
+<div class="modal fade" id="claimModal" tabindex="-1" aria-labelledby="claimModalLabel" aria-hidden="true">
   <div class="modal-dialog modal-dialog-centered">
     <div class="modal-content">
       <div class="modal-header">
-        <h5 class="modal-title">Claim a Device</h5>
-        <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+        <h5 class="modal-title">Claim a Phone</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
       </div>
       <div class="modal-body">
         <form>
           <div class="mb-3">
             <label class="form-label">Name</label>
-            <input type="text" class="form-control" required />
+            <input type="text" class="form-control" required>
           </div>
           <div class="mb-3">
             <label class="form-label">Email</label>
-            <input type="email" class="form-control" />
+            <input type="email" class="form-control">
           </div>
           <div class="mb-3">
             <label class="form-label">Phone</label>
-            <input type="tel" class="form-control" />
+            <input type="tel" class="form-control">
           </div>
           <div class="mb-3">
-            <label class="form-label">Address</label>
-            <input type="text" class="form-control" />
+            <label class="form-label">House Address</label>
+            <input type="text" class="form-control">
           </div>
           <div class="mb-3">
             <label class="form-label">Region</label>
-            <input type="text" class="form-control" placeholder="e.g. Arnhem Land" required />
+            <input type="text" class="form-control" placeholder="e.g. Arnhem Land" required>
           </div>
           <div class="mb-3">
-            <label class="form-label">Verification Document</label>
-            <input type="file" class="form-control" accept=".jpg,.jpeg,.png,.pdf" required />
+            <label class="form-label">Verification Document (ID, Passport, Medicare, etc.)</label>
+            <input type="file" class="form-control" accept=".jpg,.jpeg,.png,.pdf" required>
           </div>
-          <button type="submit" class="btn btn-success w-100">Submit Request</button>
+          <button type="submit" class="btn btn-success">Submit Request</button>
         </form>
       </div>
     </div>
   </div>
 </div>
 
+<!-- Ads Section -->
+<div class="container my-4">
+  <div class="row">
+    <div class="col-md-6">
+      <img src="tesltraAds.png" alt="Telstra Ad" class="img-fluid w-100" style="height: 150px; object-fit: cover;">
+    </div>
+    <div class="col-md-6">
+      <img src="vodaPhoneAds.png" alt="Vodafone Ad" class="img-fluid w-100" style="height: 150px; object-fit: cover;">
+    </div>
+  </div>
+</div>
+
+<!-- Social Media Sidebar -->
+<div style="position: fixed; top: 220px; left: 10px; z-index: 9999; display: flex; flex-direction: column; gap: 10px;">
+  <a href="https://www.facebook.com" target="_blank">
+    <img src="https://cdn-icons-png.flaticon.com/512/124/124010.png" alt="Facebook" width="30" height="30">
+  </a>
+  <a href="https://www.twitter.com" target="_blank">
+    <img src="https://cdn-icons-png.flaticon.com/512/733/733579.png" alt="Twitter" width="30" height="30">
+  </a>
+  <a href="https://www.instagram.com" target="_blank">
+    <img src="https://cdn-icons-png.flaticon.com/512/2111/2111463.png" alt="Instagram" width="30" height="30">
+  </a>
+  <a href="https://www.linkedin.com" target="_blank">
+    <img src="https://cdn-icons-png.flaticon.com/512/174/174857.png" alt="LinkedIn" width="30" height="30">
+  </a>
+</div>
+
+<!-- Aboriginal News Section -->
+<div class="container section-box">
+  <h2 class="text-primary mb-5">Aboriginal News</h2>
+  <div class="articles-wrapper">
+    <div class="card flex-item">
+      <img src="https://live-production.wcms.abc-cdn.net.au/69c17a36f657d3874981798aca2fa947?impolicy=wcms_crop_resize&cropH=2241&cropW=3984&xPos=4&yPos=0&width=862&height=485" class="card-img-top" alt="Salmon Operations">
+      <div class="card-body">
+        <h5 class="card-title">Tasmania's foreign-owned salmon companies: How they operate</h5>
+        <a href="https://www.abc.net.au/news/2025-04-05/salmon-companies-how-they-operate-tasmania-and-overseas/105092152" class="btn btn-outline-primary" target="_blank">Read More</a>
+      </div>
+    </div>
+    <div class="card flex-item">
+      <img src="https://nit.com.au/img/large/center/storage/3KS4chNnIy32OfhJtqODpue8f7xgj7FuaTl3TXc0.jpg" class="card-img-top" alt="NRLW Superstars">
+      <div class="card-body">
+        <h5 class="card-title">RLPA want talks to avoid missing more NRLW superstars</h5>
+        <a href="https://nit.com.au/06-04-2025/17240/rlpa-want-talks-to-avoid-missing-more-nrlw-superstars" class="btn btn-outline-primary" target="_blank">Read More</a>
+      </div>
+    </div>
+    <div class="card flex-item">
+      <img src="https://live-production.wcms.abc-cdn.net.au/b4afbfc718dec381f6b7e1c63149dab4?impolicy=wcms_crop_resize&cropH=2813&cropW=5000&xPos=0&yPos=376&width=862&height=485" class="card-img-top" alt="Language Revival">
+      <div class="card-body">
+        <h5 class="card-title">Yuchi and Pertame families share language revival strategies in Alice Springs</h5>
+        <a href="https://www.abc.net.au/news/2025-04-05/yuchi-and-pertame-families-revive-native-languages/105107906" class="btn btn-outline-primary" target="_blank">Read More</a>
+      </div>
+    </div>
+    <div class="card flex-item">
+      <img src="https://live-production.wcms.abc-cdn.net.au/37fbb203f6f45f94c54a93288afa231f?impolicy=wcms_crop_resize&cropH=3333&cropW=5000&xPos=0&yPos=0&width=862&height=575" class="card-img-top" alt="Firefighting Heritage">
+      <div class="card-body">
+        <h5 class="card-title">Specialist Indigenous firefighters empowered to save sacred sites in scorched fire grounds</h5>
+        <a href="https://www.abc.net.au/news/2025-04-05/indigenous-cultural-heritage-firefighting-victoria/105064856" class="btn btn-outline-primary" target="_blank">Read More</a>
+      </div>
+    </div>
+  </div>
+</div>
+
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
 <!-- Register Modal -->
-<div class="modal fade" id="registerModal" tabindex="-1" aria-hidden="true">
+<div class="modal fade" id="registerModal" tabindex="-1" aria-labelledby="registerModalLabel" aria-hidden="true">
   <div class="modal-dialog">
     <div class="modal-content">
-      <div class="modal-header flex-column align-items-center">
-        <h5 class="modal-title mb-3">Register</h5>
-        <div class="btn-group mb-3" role="group">
-          <button type="button" class="btn btn-outline-primary" onclick="selectUserType('Donor')">Donor</button>
-          <button type="button" class="btn btn-outline-secondary" onclick="selectUserType('Claimer')">Claimer</button>
-          <button type="button" class="btn btn-outline-info" onclick="selectUserType('Writer')">Writer</button>
+      <div class="modal-header flex-column align-items-start">
+        <h5 class="modal-title mb-4 w-100 text-center" id="registerModalLabel">Register</h5>
+        <div class="w-100 text-center mb-3">
+          <div class="d-flex justify-content-center gap-3" role="group" aria-label="User Type">
+            <button type="button" class="btn btn-outline-primary rounded-pill px-4" onclick="selectUserType('Donor')">Donor</button>
+            <button type="button" class="btn btn-outline-secondary rounded-pill px-4" onclick="selectUserType('Claimer')">Claimer</button>
+            <button type="button" class="btn btn-outline-info rounded-pill px-4" onclick="selectUserType('Writer')">Writer</button>
+          </div>
+          <p class="mt-3 mb-0"><small id="userTypeLabel">Selected: None</small></p>
         </div>
-        <small id="userTypeLabel">Selected: None</small>
-        <button type="button" class="btn-close mt-2" data-bs-dismiss="modal"></button>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
       </div>
       <div class="modal-body">
         <form>
           <div class="mb-3">
             <label class="form-label">Full Name</label>
-            <input type="text" class="form-control" required />
+            <input type="text" class="form-control" required>
           </div>
           <div class="mb-3">
-            <label class="form-label">Email</label>
-            <input type="email" class="form-control" required />
+            <label class="form-label">Email address</label>
+            <input type="email" class="form-control" required>
           </div>
           <div class="mb-3">
             <label class="form-label">Password</label>
-            <input type="password" class="form-control" required />
+            <input type="password" class="form-control" required>
           </div>
-          <button type="submit" class="btn btn-primary w-100">Register</button>
+          <button type="submit" class="btn btn-primary w-100 rounded-pill mt-3">Register</button>
         </form>
       </div>
     </div>
@@ -287,58 +296,52 @@
 </div>
 
 <!-- Login Modal -->
-<div class="modal fade" id="loginModal" tabindex="-1" aria-hidden="true">
+<div class="modal fade" id="loginModal" tabindex="-1" aria-labelledby="loginModalLabel" aria-hidden="true">
   <div class="modal-dialog">
     <div class="modal-content">
       <div class="modal-header">
-        <h5 class="modal-title">Login</h5>
-        <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+        <h5 class="modal-title" id="loginModalLabel">Login</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
       </div>
       <div class="modal-body">
         <form>
           <div class="mb-3">
-            <label class="form-label">Email</label>
-            <input type="email" class="form-control" required />
+            <label class="form-label">Email address</label>
+            <input type="email" class="form-control" required>
           </div>
           <div class="mb-3">
             <label class="form-label">Password</label>
-            <input type="password" class="form-control" required />
+            <input type="password" class="form-control" required>
           </div>
-          <button type="submit" class="btn btn-success w-100">Login</button>
+          <button type="submit" class="btn btn-success">Login</button>
         </form>
       </div>
     </div>
   </div>
 </div>
 
-<footer>
-  <div class="container text-center">
-    <p>&copy; 2025 Donate to Connect | Empowering Aboriginal Communities</p>
-    <p>UTAS, Churchill Ave, Hobart TAS 7005 | (03) 6226 2999</p>
-    <div>
-      <a href="#"><img src="fb.svg" width="24" alt="Facebook"></a>
-      <a href="#"><img src="twitter.svg" width="24" alt="Twitter"></a>
-      <a href="#"><img src="insta.svg" width="24" alt="Instagram"></a>
-      <a href="#"><img src="linkedin.svg" width="24" alt="LinkedIn"></a>
-    </div>
-  </div>
-</footer>
-
 <script>
   let selectedType = '';
   function selectUserType(type) {
     selectedType = type;
     document.getElementById('userTypeLabel').textContent = 'Selected: ' + type;
-    document.getElementById('userTypeField')?.setAttribute('value', type);
   }
   function attachUserType() {
     if (!selectedType) {
-      alert('Select a user type first');
+      alert('Please select a user type before registering.');
       return false;
     }
+    document.getElementById('userTypeField').value = selectedType;
     return true;
   }
 </script>
-<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+
+<footer>
+  <div class="container">
+    <p class="mb-1">&copy; 2025 Donate to Connect | Empowering Aboriginal Communities</p>
+    <p class="mb-0">UTAS, Churchill Ave, Hobart TAS 7005 | Phone: (03) 6226 2999</p>
+  </div>
+</footer>
+
 </body>
 </html>
